@@ -1,5 +1,13 @@
 # Changelog
 
+## [23.62.1](https://github.com/Koenkk/zigbee-herdsman-converters/compare/v23.62.0...v23.62.1) (2025-06-21)
+
+
+### Bug Fixes
+
+* Aqara JY-GZ-01AQ: improve battery % calculation ([#9523](https://github.com/Koenkk/zigbee-herdsman-converters/issues/9523)) ([4254a97](https://github.com/Koenkk/zigbee-herdsman-converters/commit/4254a975aaceb42ce18bd1abe523024dc311bd22))
+* SONOFF TRVZB: fix `Exception while calling fromZigbee converter: Expected one of: 0, 1, got: '2'}` https://github.com/Koenkk/zigbee2mqtt/issues/27080 ([89a0bf1](https://github.com/Koenkk/zigbee-herdsman-converters/commit/89a0bf1cfad638a6d9da4e2305601879af11b4d1))
+
 ## [23.62.0](https://github.com/Koenkk/zigbee-herdsman-converters/compare/v23.61.0...v23.62.0) (2025-06-19)
 
 
