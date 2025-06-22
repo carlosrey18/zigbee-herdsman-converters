@@ -4347,6 +4347,47 @@ export const definitions: DefinitionWithExtend[] = [
             await tuya.configureMagicPacket(device, coordinatorEndpoint);
         },
     },
+
+export default {
+    fingerprint: tuya.fingerprint("TS0601", ["_TZE284_koxaopnk"]),
+    model: "ZC-LS02",
+    vendor: "Tuya",
+    description: "Moes Zigbee Roller Blind (ZC-LS02)",
+    onEvent: tuya.onEvent(),
+    configure: tuya.configureMagicPacket,
+    fromZigbee: [tuya.fz.datapoints],
+    toZigbee: [tuya.tz.datapoints],
+    exposes: [
+        e.cover_position().setAccess("position", ea.STATE_SET),
+        e.battery(),
+    ],
+    meta: {
+        tuyaDatapoints: [
+            [
+                1,
+                "state",
+                tuya.valueConverterBasic.lookup({
+                    OPEN: tuya.enum(0),
+                    STOP: tuya.enum(1),
+                    CLOSE: tuya.enum(2),
+                }),
+            ],
+            [2, "position", tuya.valueConverter.coverPositionInverted],
+            [3, "position", tuya.valueConverter.coverPositionInverted],
+            [
+                5,
+                "motor_direction",
+                tuya.valueConverterBasic.lookup({
+                    normal: tuya.enum(0),
+                    reversed: tuya.enum(1),
+                }),
+            ],
+            [7, "battery", tuya.valueConverter.raw],
+        ],
+        powerSource: 'Battery',
+    },
+};
+    
     {
         fingerprint: tuya.fingerprint("TS0003", ["_TZ3000_4o16jdca", "_TZ3000_odzoiovu", "_TZ3000_hbic3ka3", "_TZ3000_lvhy15ix"]),
         model: "TS0003_switch_module_2",
